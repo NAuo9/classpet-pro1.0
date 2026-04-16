@@ -29,8 +29,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
+       - name: Checkout code
+     uses: actions/checkout@v6
+     with:
+       submodules: true  # 关键！启用子模块初始化
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
